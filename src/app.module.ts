@@ -7,6 +7,6 @@ import { TextAnalyzerService } from "src/text-analyzer/text-analyzer.service";
 @Module({
   imports: [],
   controllers: [AppController, TextAnalyzerController],
-  providers: [AppService],
+  providers: [AppService, TextAnalyzerService],
 })
 export class AppModule {}
