@@ -7,6 +7,6 @@ export class TextAnalyzerService {
   }
 
   characterCount(text: string): string {
-    return "0";
+    return text.trim().replaceAll(/\s+/g, "").length.toString();
   }
 }
