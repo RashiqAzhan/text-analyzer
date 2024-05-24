@@ -20,4 +20,9 @@ export class TextAnalyzerController {
   countWords(@Body() body: { text: string }): string {
     return this.textAnalyzerService.wordCount(body.text);
   }
+
+  @Post("character-count")
+  countCharacters(@Body() body: { text: string }): string {
+    return this.textAnalyzerService.characterCount(body.text);
+  }
 }

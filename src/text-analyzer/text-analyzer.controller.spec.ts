@@ -4,6 +4,8 @@ import { TextAnalyzerService } from "src/text-analyzer/text-analyzer.service";
 
 describe("TextAnalyzerController", () => {
   let controller: TextAnalyzerController;
+  const testSentence =
+    "The quick brown fox jumps over the lazy dog. The lazy dog slept in the sun.";
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -16,5 +18,15 @@ describe("TextAnalyzerController", () => {
 
   it("should be defined", () => {
     expect(controller).toBeDefined();
+  });
+
+  it("should count the number of words in a sentence", () => {
+    const result = controller.countWords({ text: testSentence });
+    expect(result).toBe("16");
+  });
+
+  it("should count the number of characters in a sentence", () => {
+    const result = controller.countCharacters({ text: testSentence });
+    expect(result).toBe("60");
   });
 });
