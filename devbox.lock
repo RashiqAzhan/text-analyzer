@@ -1,0 +1,70 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "nodejs-slim@latest": {
+      "last_modified": "2024-05-16T13:50:14Z",
+      "plugin_version": "0.0.2",
+      "resolved": "github:NixOS/nixpkgs/bf446f08bff6814b569265bef8374cfdd3d8f0e0#nodejs-slim_22",
+      "source": "devbox-search",
+      "version": "22.2.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/bwr1b75y6dfsl35mn9arbf4zd8lpkn07-nodejs-slim-22.2.0",
+              "default": true
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/ypy5x7i47492mzc6x0x37ayivgyj2xiz-nodejs-slim-22.2.0-libv8"
+            }
+          ],
+          "store_path": "/nix/store/bwr1b75y6dfsl35mn9arbf4zd8lpkn07-nodejs-slim-22.2.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/9rn1c05j7v2h6q8xkwbywh92yi215rj5-nodejs-slim-22.2.0",
+              "default": true
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/ncrbn9zfvlfikgm3wyhnqp67kan02cwl-nodejs-slim-22.2.0-libv8"
+            }
+          ],
+          "store_path": "/nix/store/9rn1c05j7v2h6q8xkwbywh92yi215rj5-nodejs-slim-22.2.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/r7shi62r81gv8y0xrwr6y8wvnb5wip9a-nodejs-slim-22.2.0",
+              "default": true
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/zjqsb7q43f7xsjcq1b0xmmmy487g6gdi-nodejs-slim-22.2.0-libv8"
+            }
+          ],
+          "store_path": "/nix/store/r7shi62r81gv8y0xrwr6y8wvnb5wip9a-nodejs-slim-22.2.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/xi56sdhdfq7kf1xkiy8dddlafbr5xa23-nodejs-slim-22.2.0",
+              "default": true
+            },
+            {
+              "name": "libv8",
+              "path": "/nix/store/ls1dqwrbyl9m99ln1qccm36d47d45nzm-nodejs-slim-22.2.0-libv8"
+            }
+          ],
+          "store_path": "/nix/store/xi56sdhdfq7kf1xkiy8dddlafbr5xa23-nodejs-slim-22.2.0"
+        }
+      }
+    }
+  }
+}
