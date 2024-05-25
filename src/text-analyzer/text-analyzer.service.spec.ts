@@ -3,7 +3,8 @@ import { TextAnalyzerService } from "src/text-analyzer/text-analyzer.service";
 
 describe("TextAnalyzerService", () => {
   let service: TextAnalyzerService;
-  const testSentence = `In the vast digital realm, where words jostle for attention and algorithms reign supreme, mastering the art of SEO content creation is akin to navigating a labyrinth.`;
+  const testSentence =
+    "In the vast digital realm, where words jostle for attention and algorithms reign supreme, mastering the art of SEO content creation is akin to navigating a labyrinth.";
   const testEmpty = "";
   const testWhitespace = " ";
   const testWhitespaces = " ".repeat(10);
@@ -333,6 +334,53 @@ describe("TextAnalyzerService", () => {
 
     it("should count paragraphs for paragraphs with extra space", () => {
       expect(service.paragraphCount(testParagraphsWithExtraSpace)).toEqual("2");
+    });
+  });
+
+  describe("longestWords", () => {
+    it("should be defined", () => {
+      expect(typeof service.longestWords).toBe("function");
+    });
+
+    it("should count longest words for a sentence", () => {
+      expect(service.longestWords(testSentence)).toEqual([
+        "algorithms",
+        "navigating",
+      ]);
+    });
+
+    it("should count 0 for empty", () => {
+      expect(service.longestWords(testEmpty)).toEqual([]);
+    });
+
+    it("should count 0 for whitespace", () => {
+      expect(service.longestWords(testWhitespace)).toEqual([]);
+    });
+
+    it("should count 0 for whitespaces", () => {
+      expect(service.longestWords(testWhitespaces)).toEqual([]);
+    });
+
+    it("should count 0 for blank lines", () => {
+      expect(service.longestWords(testBlankLines)).toEqual([]);
+    });
+
+    it("should count longest words for multiple paragraphs", () => {
+      expect(service.longestWords(testMultipleParagraphs)).toEqual([
+        "Introduction",
+        "algorithms",
+        "navigating",
+        "Humour",
+        "irresistible",
+      ]);
+    });
+
+    it("should count paragraphs for paragraphs with extra space", () => {
+      expect(service.longestWords(testParagraphsWithExtraSpace)).toEqual([
+        "Finding",
+        "Balance",
+        "professionalism",
+      ]);
     });
   });
 });
