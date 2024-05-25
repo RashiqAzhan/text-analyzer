@@ -81,7 +81,7 @@ describe("TextAnalyzerService", () => {
       expect(service.characterCount(testBlankLines)).toEqual("0");
     });
 
-    it("should count words for multiple paragraphs", () => {
+    it("should count characters for multiple paragraphs", () => {
       expect(service.characterCount(testMultipleParagraphs)).toEqual("771");
     });
   });
