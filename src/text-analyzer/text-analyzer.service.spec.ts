@@ -28,7 +28,7 @@ describe("TextAnalyzerService", () => {
 
   describe("wordCount", () => {
     it("should be defined", () => {
-      expect(service).toBeDefined();
+      expect(typeof service.wordCount).toBe("function");
     });
 
     it("should count words for a sentence", () => {
@@ -58,7 +58,7 @@ describe("TextAnalyzerService", () => {
 
   describe("characterCount", () => {
     it("should be defined", () => {
-      expect(service).toBeDefined();
+      expect(typeof service.characterCount).toBe("function");
     });
 
     it("should count characters for a sentence", () => {
