@@ -2,6 +2,8 @@ import { Injectable } from "@nestjs/common";
 
 @Injectable()
 export class TextAnalyzerService {
+  private paragraphRegex = new RegExp(/\n+?|\r?\n/g);
+
   wordCount(text: string): string {
     return text.trim().split(/\s+/gm).filter(Boolean).length.toString();
   }
@@ -20,8 +22,30 @@ export class TextAnalyzerService {
   paragraphCount(text: string): string {
     return text
       .trim()
-      .split(/\n+|\\r?\n?/g)
+      .split(this.paragraphRegex)
       .filter(Boolean)
       .length.toString();
+  }
+
+  longestWords(text: string): string[] {
+    return text
+      .trim()
+      .split(this.paragraphRegex)
+      .filter(Boolean)
+      .map((paragraph) =>
+        paragraph
+          .split(/\s+/g)
+          .map((word) => word.replace(/\W/g, ""))
+          .reduce(
+            (longestWords: string[], currentWord) =>
+              (longestWords.at(0)?.length ?? 0) > currentWord.length ?
+                longestWords
+              : longestWords.at(0)?.length === currentWord.length ?
+                [...longestWords, currentWord]
+              : [currentWord],
+            [],
+          ),
+      )
+      .flat();
   }
 }
