@@ -17,6 +17,12 @@ describe("TextAnalyzerService", () => {
     "\n" +
     "Haven't we all fallen prey to the irresistible allure of a well-crafted joke? Humour taps into the very essence of human psychology, invoking laughter, releasing endorphins, and forging an instant connection between the reader and the content. It transcends barriers, breaking down walls of resistance and fostering a sense of camaraderie. In the realm of SEO, where engagement is king, humour reigns supreme as the ultimate tool for captivating audiences." +
     "\n";
+  const testParagraphsWithExtraSpace =
+    "\n\n\n" +
+    "Finding the Balance\n" +
+    "\n\n\n\n\n" +
+    "Ah, but herein lies the conundrum: how does one strike the delicate balance between mirth and professionalism? It's a tightrope act, to be sure. While humour adds flavour to thy content, too much can leave a bitter aftertaste. Remember, dear reader, thou art crafting SEO content, not stand-up comedy. Maintain thy wit, but never at the expense of thy credibility." +
+    "\n\n\n\n\n\n\n\n";
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -293,6 +299,40 @@ describe("TextAnalyzerService", () => {
             "'To thine own self be true,' Shakespeare famously wrote, 'and it must follow, as the night the day, thou canst not then be false to any man.'",
         ),
       ).toEqual("4");
+    });
+  });
+
+  describe("paragraphCount", () => {
+    it("should be defined", () => {
+      expect(typeof service.paragraphCount).toBe("function");
+    });
+
+    it("should count paragraph for a sentence", () => {
+      expect(service.paragraphCount(testSentence)).toEqual("1");
+    });
+
+    it("should count 0 for empty", () => {
+      expect(service.paragraphCount(testEmpty)).toEqual("0");
+    });
+
+    it("should count 0 for whitespace", () => {
+      expect(service.paragraphCount(testWhitespace)).toEqual("0");
+    });
+
+    it("should count 0 for whitespaces", () => {
+      expect(service.paragraphCount(testWhitespaces)).toEqual("0");
+    });
+
+    it("should count 0 for blank lines", () => {
+      expect(service.paragraphCount(testBlankLines)).toEqual("0");
+    });
+
+    it("should count paragraphs for multiple paragraphs", () => {
+      expect(service.paragraphCount(testMultipleParagraphs)).toEqual("4");
+    });
+
+    it("should count paragraphs for paragraphs with extra space", () => {
+      expect(service.paragraphCount(testParagraphsWithExtraSpace)).toEqual("2");
     });
   });
 });
