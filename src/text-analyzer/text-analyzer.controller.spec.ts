@@ -20,6 +20,11 @@ describe("TextAnalyzerController", () => {
     expect(controller).toBeDefined();
   });
 
+  it("should return a message", () => {
+    const result = controller.landing();
+    expect(result).toMatch(/\s+/g);
+  });
+
   it("should count the number of words in a sentence", () => {
     const result = controller.countWords({ text: testSentence });
     expect(result).toBe("16");

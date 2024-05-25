@@ -6,14 +6,8 @@ export class TextAnalyzerController {
   constructor(private readonly textAnalyzerService: TextAnalyzerService) {}
 
   @Get()
-  getHello(): string {
-    return "you've reached text-analyzer";
-  }
-
-  @Post()
-  analyzeText(@Body() body: { text: string }): string {
-    console.log(body);
-    return "you've reached text-analyzer";
+  landing(): string {
+    return "Welcome to text-analyzer!";
   }
 
   @Post("word-count")
