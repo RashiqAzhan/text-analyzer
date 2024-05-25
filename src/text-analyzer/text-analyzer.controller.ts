@@ -35,4 +35,9 @@ export class TextAnalyzerController {
   countParagraphs(@Body() body: { text: string }): string {
     return this.textAnalyzerService.paragraphCount(body.text);
   }
+
+  @Post("longest-words")
+  findLongestWords(@Body() body: { text: string }): string[] {
+    return this.textAnalyzerService.longestWords(body.text);
+  }
 }

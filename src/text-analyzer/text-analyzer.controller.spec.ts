@@ -39,4 +39,13 @@ describe("TextAnalyzerController", () => {
     const result = controller.countParagraphs({ text: testSentence });
     expect(result).toBe("1");
   });
+
+  it("should find the longest words in a sentence", () => {
+    expect(controller.findLongestWords({ text: testSentence })).toEqual([
+      "quick",
+      "brown",
+      "jumps",
+      "slept",
+    ]);
+  });
 });
