@@ -25,4 +25,9 @@ export class TextAnalyzerController {
   countCharacters(@Body() body: { text: string }): string {
     return this.textAnalyzerService.characterCount(body.text);
   }
+
+  @Post("sentence-count")
+  countSentences(@Body() body: { text: string }): string {
+    return this.textAnalyzerService.sentenceCount(body.text);
+  }
 }

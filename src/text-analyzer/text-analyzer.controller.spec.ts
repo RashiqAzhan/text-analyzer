@@ -29,4 +29,9 @@ describe("TextAnalyzerController", () => {
     const result = controller.countCharacters({ text: testSentence });
     expect(result).toBe("60");
   });
+
+  it("should count the number of sentences in a sentence", () => {
+    const result = controller.countSentences({ text: testSentence });
+    expect(result).toBe("2");
+  });
 });
