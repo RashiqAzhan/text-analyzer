@@ -111,6 +111,10 @@ describe("TextAnalyzerService", () => {
       expect(service.sentenceCount(testBlankLines)).toEqual("0");
     });
 
+    it("should sentences for multiple paragraphs", () => {
+      expect(service.sentenceCount(testMultipleParagraphs)).toEqual("9");
+    });
+
     it("should count sentences for period (.)", () => {
       expect(
         service.sentenceCount(
