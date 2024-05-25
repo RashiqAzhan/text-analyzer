@@ -9,4 +9,11 @@ export class TextAnalyzerService {
   characterCount(text: string): string {
     return text.trim().replaceAll(/\s+/g, "").length.toString();
   }
+
+  sentenceCount(text: string): string {
+    return (
+      text.trim().match(/\S\.(?!\.)|\S\?(?!\?)|\S!(?!!)|\S:(?!:)|\S;(?!;)/g)
+        ?.length ?? 0
+    ).toString();
+  }
 }
