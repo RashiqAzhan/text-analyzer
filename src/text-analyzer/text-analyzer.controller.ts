@@ -30,4 +30,9 @@ export class TextAnalyzerController {
   countSentences(@Body() body: { text: string }): string {
     return this.textAnalyzerService.sentenceCount(body.text);
   }
+
+  @Post("paragraph-count")
+  countParagraphs(@Body() body: { text: string }): string {
+    return this.textAnalyzerService.paragraphCount(body.text);
+  }
 }

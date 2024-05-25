@@ -34,4 +34,9 @@ describe("TextAnalyzerController", () => {
     const result = controller.countSentences({ text: testSentence });
     expect(result).toBe("2");
   });
+
+  it("should count the number of paragraphs in a sentence", () => {
+    const result = controller.countParagraphs({ text: testSentence });
+    expect(result).toBe("1");
+  });
 });
