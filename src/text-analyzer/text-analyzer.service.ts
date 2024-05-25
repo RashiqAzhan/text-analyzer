@@ -16,4 +16,12 @@ export class TextAnalyzerService {
         ?.length ?? 0
     ).toString();
   }
+
+  paragraphCount(text: string): string {
+    return text
+      .trim()
+      .split(/\n+|\\r?\n?/g)
+      .filter(Boolean)
+      .length.toString();
+  }
 }
