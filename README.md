@@ -56,3 +56,9 @@ Have the [development container running](#docker).
 ```bash
 docker exec -i -t <CONTAINER_NAME/ID> bash
 ```
+
+```bash
+npm run test
+npm run test:e2e
+npm run test:cov
+```
