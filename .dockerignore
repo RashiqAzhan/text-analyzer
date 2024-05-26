@@ -1,0 +1,10 @@
+.devbox
+.git
+.idea
+.jetclient
+.vscode
+Dockerfile*
+coverage
+devbox.*
+dist
+docker-compose*
