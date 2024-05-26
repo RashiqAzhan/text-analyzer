@@ -6,7 +6,7 @@ export class TextAnalyzerController {
   constructor(private readonly textAnalyzerService: TextAnalyzerService) {}
 
   @Get()
-  landing(): string {
+  getLanding(): string {
     return "Welcome to text-analyzer!";
   }
 

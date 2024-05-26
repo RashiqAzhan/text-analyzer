@@ -21,28 +21,23 @@ describe("TextAnalyzerController", () => {
   });
 
   it("should return a message", () => {
-    const result = controller.landing();
-    expect(result).toMatch(/\s+/g);
+    expect(controller.getLanding()).toMatch(/\s+/g);
   });
 
   it("should count the number of words in a sentence", () => {
-    const result = controller.countWords({ text: testSentence });
-    expect(result).toBe("16");
+    expect(controller.countWords({ text: testSentence })).toBe("16");
   });
 
   it("should count the number of characters in a sentence", () => {
-    const result = controller.countCharacters({ text: testSentence });
-    expect(result).toBe("60");
+    expect(controller.countCharacters({ text: testSentence })).toBe("60");
   });
 
   it("should count the number of sentences in a sentence", () => {
-    const result = controller.countSentences({ text: testSentence });
-    expect(result).toBe("2");
+    expect(controller.countSentences({ text: testSentence })).toBe("2");
   });
 
   it("should count the number of paragraphs in a sentence", () => {
-    const result = controller.countParagraphs({ text: testSentence });
-    expect(result).toBe("1");
+    expect(controller.countParagraphs({ text: testSentence })).toBe("1");
   });
 
   it("should find the longest words in a sentence", () => {
